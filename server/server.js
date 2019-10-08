@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express()
+const path = require('path')
 
-app.get('/signup', function(req, res){
-    res.send("HELLO WORLD")
+app.get('*/', function(req, res){
+    res.sendFile(path.join(__dirname, '../app/index.html'))
 })
 
 app.listen(3000, () => {
