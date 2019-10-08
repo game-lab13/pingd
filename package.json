@@ -37,6 +37,7 @@
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.3",
     "pg": "^7.12.1",
+    "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
