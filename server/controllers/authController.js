@@ -19,13 +19,14 @@ authController.createUser = (req, res, next) => {
             }
             else {
                 let queryString = `INSERT INTO "user"(first_name, last_name, password, phone, username)
-                VALUES ($1, $2, crypt($3, gen_salt('bf')), $4, $5)`
+                VALUES ($1, $2, crypt($3, gen_salt('bf')), $4, $5) RETURNING id, first_name, username, points, wins, losses`
                 const values = [first_name, last_name, password, phone, username];
 
                 pool.query(queryString, values, (err, result) => {
                     if (err) {
                         res.status(500).send(err)
                     } else {
+                        res.locals['userInfo'] = result.rows[0];
                         next();
                     }
                 });
