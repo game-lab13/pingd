@@ -5,7 +5,8 @@ module.exports = {
     entry: './app/index.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index_bundle.js'
+        filename: 'index_bundle.js',
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -22,7 +23,9 @@ module.exports = {
     devServer: {
         contentBase: 'build',
         port: 8080,
+        historyApiFallback: true,
         proxy: {
+            '/login': 'http://localhost:3000',
             '/signup': 'http://localhost:3000'
         }
     }
