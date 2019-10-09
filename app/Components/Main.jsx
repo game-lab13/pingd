@@ -9,7 +9,7 @@ class Main extends Component {
 }
   render() { 
       const rankingArray = this.props.currentRanking.map((user, index) => {
-        return <RankRow key={`rankrow${index}`} name={user} />
+        return <RankRow key={`rankrow${index}`} ranking={user} />
       })
 
       return (
