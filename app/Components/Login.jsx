@@ -2,16 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, IndexRoute } from 'react-router-dom'
 import Home from './Home.jsx'
+import SignUp from './SignUp.jsx'
 import * as actions from '../actions/actions.js'
 
 const mapStateToProps = store => ({
     loginID: store.info.loginID,
+    signUp: store.info.signUp,
     currentRanking: store.info.currentRanking
 })
 
 const mapDispatchToProps = dispatch => ({
     logInToApp: (credentials) => dispatch(actions.logInToMain(credentials)),
-    testLogIn: (data) => dispatch(actions.testLogIn(data)),
+    toggleSignUp: () => dispatch(actions.activateSignUp()),
 })
 
 class Login extends Component {
@@ -23,7 +25,7 @@ class Login extends Component {
         }
     }
 
-    setUserName(value) {
+    setUsername(value) {
         this.setState({username: value})
         console.log(this.state);
     }
@@ -43,19 +45,19 @@ class Login extends Component {
                 </Router>
             )
         }
-        // else if (this.props.logInStatus === false) {
-        //     return (
-        //         <SignUp />
-        //     )
-        // }
+        else if (this.props.signUp === true) {
+            return (
+                <SignUp />
+            )
+        }
         else {
             return (
                     <div className='loginForm'>
                         <h2>PING'D</h2>
-                        <input placeholder='Username' onChange={(e) => this.setUserName(e.target.value) }></input>
+                        <input placeholder='Username' onChange={(e) => this.setUsername(e.target.value) }></input>
                         <input placeholder='Password' onChange={(e) => this.setPassword(e.target.value)}></input>
                         <button onClick={() => this.props.logInToApp(this.state)}>Log In</button>
-                        <button>Sign Up</button>
+                        <button onClick={() => this.props.toggleSignUp()}>Sign Up</button>
                     </div>
              );
         }
