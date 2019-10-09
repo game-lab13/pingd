@@ -5,54 +5,79 @@ import InviteReceived from './InviteReceived.js'
 import RecordScore from './RecordScore.js'
 import ScoreConfirm from './ScoreConfirm.js'
 
+import { connect } from 'react-redux'
+import * as actions from '../actions/actions.js'
+
+const mapStateToProps = store => ({
+    loginID: store.info.loginID,
+    loginUsername: store.info.loginUsername,
+    signUp: store.info.signUp,
+    currentRanking: store.info.currentRanking,
+    invitesReceived: store.info.invitesReceived,
+    invitesSent: store.info.invitesSent,
+    scoresToConfirm: store.info.scoresToConfirm,
+    scoresToRecord: store.info.scoresToRecord,
+})
+
+const mapDispatchToProps = dispatch => ({
+    logInToApp: (credentials) => dispatch(actions.logInToMain(credentials)),
+    toggleSignUp: () => dispatch(actions.activateSignUp()),
+})
+
 //! test data - ERASE LATER
 const testData = [{user: 'Paul'}, {user: 'Duane'}]
 const testDataScore = [{host: 'Paul', guest: 'Duane'}, {host: 'XaRheea', guest: 'Natalie'}]
 const testDataResult = [{winner: 'Duane'}, {winner: 'XaRheea'}]
 
-const mappedTest = testData.map((data, index) => {
-  return <InviteSent key={`invitesent${index}`} player={data} />
-})
-
-const mappedTest2 = testData.map((data, index) => {
-  return <InviteReceived key={`invitereceived${index}`} player={data} />
-})
-
-const mappedTest3 = testDataScore.map((data, index) => {
-  return <RecordScore key={`record${index}`} player={data} />
-})
-
-const mappedTest4 = testDataResult.map((data, index) => {
-  return <ScoreConfirm key={`confirm${index}`} player={data} />
-})
+//!
 
 class Action extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() { 
+
+    const invSentArray = this.props.invitesSent.map((data, index) => {
+      return <InviteSent key={`invitesent${index}`} invite={data} />
+    })
+    
+    const invReceivedArray = this.props.invitesReceived.map((data, index) => {
+      return <InviteReceived key={`invitereceived${index}`} invite={data} />
+    })
+    
+    const recordScoreArray = this.props.scoresToRecord.map((data, index) => {
+      return <RecordScore key={`record${index}`} guestData={data} host={this.props.loginUsername} />
+    })
+    
+    // const scoreConfirmArray = this.props.scoresToConfirm.map((data, index) => {
+    //   return <ScoreConfirm key={`confirm${index}`} scoreData={data} />
+    // })
+
       return (
         <div>
           <div>
             Invite Sent
             <hr/>
-            {mappedTest}
+            {invSentArray}
           </div>
           <div>
             Invite Received
             <hr/>
-            {mappedTest2}
+            {invReceivedArray}
           </div>
           <div>
             Record Score
             <hr/>
-            {mappedTest3}
+            {recordScoreArray}
           </div>
           <div>
             Score Confirmation
             <hr/>
-            {mappedTest4}
+            {/* {scoreConfirmArray} */}
           </div>
         </div>
       )
   }
 }
 
-export default Action;
+export default connect(mapStateToProps, mapDispatchToProps)(Action);
