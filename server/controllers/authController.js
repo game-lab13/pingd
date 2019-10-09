@@ -37,24 +37,36 @@ authController.createUser = (req, res, next) => {
 
 authController.verifyUser = (req, res, next) => {
     const { username, password } = req.body;
-    console.log('username', username)
-    console.log('password', password)
     let queryString = `SELECT password FROM "user" WHERE username=$1;`;
     const value = [username];
 
     pool.query(queryString, value, (err, result) => {
         if (err) res.status(500).send(err);
         else {
-            let expectedPassword = result.rows[0].password;
-            let userQuery = `SELECT id, fname, username, points, wins, losses FROM "user" WHERE username=$1 AND password=crypt($2, $3)`
-            const values = [username, password, expectedPassword];
-            pool.query(userQuery, values, (err, result) => {
-                if (err) res.status(500).send(err);
-                else {
-                    res.locals['userInfo'] = result.rows[0];
-                    next();
-                }
-            })
+            if (result.rows.length === 0) {
+                res.status(500).json({
+                    id: null,
+                    message: 'Please verify your login credentials. User not found.'
+                })
+            } else {
+                let expectedPassword = result.rows[0].password;
+                let userQuery = `SELECT id, fname, username, points, wins, losses FROM "user" WHERE username=$1 AND password=crypt($2, $3)`
+                const values = [username, password, expectedPassword];
+                pool.query(userQuery, values, (err, result) => {
+                    if (err) res.status(500).send(err);
+                    else {
+                        if (result.rows.length === 0) {
+                            res.json({
+                                id: null,
+                                message: 'Please verify your login credentials. User not found.'
+                            })
+                        } else {
+                            res.locals['userInfo'] = result.rows[0];
+                            next();
+                        }
+                    }
+                })
+            }
         }
     });
 }
