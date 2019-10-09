@@ -1,8 +1,10 @@
 import * as types from '../constants/actionTypes.js'
 
 const initialState = {
-currentUserLoggedIn: false,
+currentUserLoggedIn: null,
 currentRanking: [],
+pendingInvites: [],
+pendingConfirmation: [],
 }
 
 const infoReducer = (state = initialState, action) => {

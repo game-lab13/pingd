@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Login from './Login.jsx'
-import Text from './Text.jsx'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import Text from './Ranking.jsx'
+import { BrowserRouter as Router} from 'react-router-dom'
 
 
 class App extends Component {
@@ -16,7 +16,9 @@ class App extends Component {
                 // <Route exact path = '/' component = {Login} />
             //     {/* <Route exact path = '/text' component = {Text} /> */}
             // {/* </Router> */}
-            <Login />
+            <Router>
+                <Login />
+            </Router>
          );
     }
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Text from './Text.jsx'
+import { BrowserRouter as Router, IndexRoute } from 'react-router-dom'
+import Ranking from './Ranking.jsx'
+import Main from './Main.jsx'
 import * as actions from '../actions/actions.js'
 
 const mapStateToProps = store => ({
@@ -33,12 +34,24 @@ class Login extends Component {
     }
 
     render() { 
-        if (this.props.logInStatus) {
-            return (<Text />)
+        if (this.props.logInStatus === true) {
+            return (
+                <Router>
+                    <div>
+                        <Ranking />
+                    </div>
+                </Router>
+            )
         }
+        // else if (this.props.logInStatus === false) {
+        //     return (
+        //         <SignUp />
+        //     )
+        // }
         else {
             return (
                     <div className='loginForm'>
+                        <h2>PING'D</h2>
                         <input placeholder='Username' onChange={(e) => this.setUserName(e.target.value) }></input>
                         <input placeholder='Password' onChange={(e) => this.setPassword(e.target.value)}></input>
                         <button onClick={() => this.props.testLogIn(this.state)}>Log In</button>
