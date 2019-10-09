@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Login from './Login.jsx'
-import Text from './Ranking.jsx'
 import { BrowserRouter as Router} from 'react-router-dom'
 
 

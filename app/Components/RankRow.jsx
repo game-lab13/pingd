@@ -5,7 +5,8 @@ import React from 'react'
 const RankRow = (props) => {
   return (
     <div>
-      {props.name.userName}
+      {props.name.username}
+      {props.name.points}
     </div>
   )
 }

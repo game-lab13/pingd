@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, IndexRoute } from 'react-router-dom'
-import Ranking from './Ranking.jsx'
-import Main from './Main.jsx'
+import Home from './Home.jsx'
 import * as actions from '../actions/actions.js'
 
 const mapStateToProps = store => ({
-    logInStatus: store.info.currentUserLoggedIn
+    loginID: store.info.loginID,
+    currentRanking: store.info.currentRanking
 })
 
 const mapDispatchToProps = dispatch => ({
-    logInToApp: (credentials) => actions.logInToMain(credentials),
+    logInToApp: (credentials) => dispatch(actions.logInToMain(credentials)),
     testLogIn: (data) => dispatch(actions.testLogIn(data)),
 })
 
@@ -34,11 +34,11 @@ class Login extends Component {
     }
 
     render() { 
-        if (this.props.logInStatus === true) {
+        if (this.props.loginID) {
             return (
                 <Router>
                     <div>
-                        <Ranking />
+                        <Home currentRanking={this.props.currentRanking}/>
                     </div>
                 </Router>
             )
@@ -54,7 +54,7 @@ class Login extends Component {
                         <h2>PING'D</h2>
                         <input placeholder='Username' onChange={(e) => this.setUserName(e.target.value) }></input>
                         <input placeholder='Password' onChange={(e) => this.setPassword(e.target.value)}></input>
-                        <button onClick={() => this.props.testLogIn(this.state)}>Log In</button>
+                        <button onClick={() => this.props.logInToApp(this.state)}>Log In</button>
                         <button>Sign Up</button>
                     </div>
              );

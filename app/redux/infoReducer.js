@@ -1,23 +1,26 @@
 import * as types from '../constants/actionTypes.js'
 
 const initialState = {
-currentUserLoggedIn: null,
+loginID: null,
 currentRanking: [],
 pendingInvites: [],
 pendingConfirmation: [],
 }
 
 const infoReducer = (state = initialState, action) => {
-    let logInStatus;
+    
+    let loginID;
     let currentRanking;
     console.log('action', action)
     switch (action.type) {
         case types.LOG_IN:
-            logInStatus = action.payload.currentUserLoggedIn
-
+            loginID = action.payload.currentUserInfo.id
+            currentRanking = action.payload.rankings
+            console.log('CURRENT', currentRanking)
             return {
                 ...state,
-                currentUserLoggedIn: logInStatus
+                loginID: loginID,
+                currentRanking: currentRanking
             }
 
         default: 

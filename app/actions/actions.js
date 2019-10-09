@@ -2,8 +2,6 @@ import * as types from '../constants/actionTypes.js';
 
 export const logInToMain = (credentials) => {
 
-  console.log('HERE!',credentials);
-
   return (dispatch) => {
     fetch('/login', {
       method: 'POST',
@@ -20,6 +18,7 @@ export const logInToMain = (credentials) => {
   }
 }
 
-export const testLogIn = (data) => ({
-  type: types.LOG_IN, payload: {currentUserLoggedIn:true}
-})
+// test action creator
+// export const testLogIn = (data) => ({
+//   type: types.LOG_IN, payload: {currentUserLoggedIn:true}
+// })

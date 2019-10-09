@@ -10,8 +10,8 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.(jsx)$/, use: 'babel-loader'},
-            { test: /\.scss$/, use: [ 'style-loader', 'css-loader', 'sass-loader' ]}
+            { test: /\.(jsx)$/, use: 'babel-loader' },
+            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
         ]
     },
     mode: process.env.NODE_ENV,
@@ -25,6 +25,7 @@ module.exports = {
         port: 8080,
         historyApiFallback: true,
         proxy: {
+            '/login': 'http://localhost:3000',
             '/signup': 'http://localhost:3000'
         }
     }

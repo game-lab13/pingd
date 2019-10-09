@@ -6,13 +6,17 @@ import Main from './Main.jsx'
 
 
 class Ranking extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() { 
         return ( 
             <Router>
                 <div>
                 <ul>
                 <li>
-                    <Link to='/main'>Main</Link>
+                    <Link to='/main'>Leaderboard</Link>
                 </li>
                 <li>
                     <Link to="/action">Actions</Link>
@@ -20,7 +24,11 @@ class Ranking extends Component {
                 </ul>
                 <hr/>
                 
-                <Route exact path="/main" component={Main} />
+                <Route
+                exact path='/main'
+                render={() => <Main {...this.props} />}
+                />
+                {/* <Route exact path="/main" component={Main} /> */}
                 <Route path="/action" component={Action} />
                 </div>
             </Router>
