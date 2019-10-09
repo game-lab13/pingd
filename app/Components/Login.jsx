@@ -43,11 +43,11 @@ class Login extends Component {
                 </Router>
             )
         }
-        // else if (this.props.logInStatus === false) {
-        //     return (
-        //         <SignUp />
-        //     )
-        // }
+        else if (this.props.logInStatus === false) {
+            return (
+                <SignUp />
+            )
+        }
         else {
             return (
                     <div className='loginForm'>
@@ -55,7 +55,7 @@ class Login extends Component {
                         <input placeholder='Username' onChange={(e) => this.setUserName(e.target.value) }></input>
                         <input placeholder='Password' onChange={(e) => this.setPassword(e.target.value)}></input>
                         <button onClick={() => this.props.logInToApp(this.state)}>Log In</button>
-                        <button>Sign Up</button>
+                        <button onClick={() => }>Sign Up</button>
                     </div>
              );
         }
