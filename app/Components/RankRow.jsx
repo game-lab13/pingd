@@ -1,26 +1,33 @@
 import React from 'react'
 import * as actions from '../actions/actions.js'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 
-// const mapStateToProps = store => ({
-//   loginID: store.info.loginID,
-//   signUp: store.info.signUp,
-//   currentRanking: store.info.currentRanking
-// })
+const mapStateToProps = store => ({
+  loginID: store.info.loginID,
+  signUp: store.info.signUp,
+  loginUsername: store.info.loginUsername,
+  currentRanking: store.info.currentRanking
+})
 
 // formatting data received from the server
 
+
+function clickMe(data){
+  console.log(data)
+}
+
 const RankRow = (props) => {
-  console.log(props.ranking.username, 'is the username')
+  // console.log(props.loginUsername, 'is the logged in user')
 
   // console.log(this.loginID, ' is props login id')
-  if (props.username === props.ranking.id){
+  // console.log(props.userInfo, ' is the logged in user!!!!')
+  if (props.loginUsername === props.ranking.id){
     return (
       <div className='rankingsRow'>
       <div>{props.rank+1}</div>
       <div>
         {props.ranking.username}
-        <button className='matchBtn'>Match!</button>
+        <button className='inviteBtn' onClick={() => clickMe(props.ranking.username)} className='matchBtn'>Match!</button>
       </div>
       <div>{props.ranking.points}</div>
       <div>{props.ranking.wins}</div>
@@ -31,8 +38,9 @@ const RankRow = (props) => {
   } else {
     return (
       <div className='rankingsRow'>
-        <div>{props.ranking.username}</div>
-        {/* <button>match</button> */}
+        <div>{props.rank+1}</div>
+        <div>{props.ranking.username}<button className='inviteBtn' onClick={() => clickMe(props.ranking.username)} className='matchBtn'>Invite!</button>
+</div>
         <div>{props.ranking.points}</div>
         <div>{props.ranking.wins}</div>
         <div>{props.ranking.losses}</div>
@@ -42,5 +50,5 @@ const RankRow = (props) => {
   }
 }
 
-export default RankRow;
-// export default connect (mapStateToProps)(RankRow);
+// export default RankRow;
+export default connect (mapStateToProps)(RankRow);
