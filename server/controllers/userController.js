@@ -8,7 +8,6 @@ userController.fetchRanking = (req, res, next) => {
         else {
             const rankings = result.rows;
             res.locals['rankings'] = rankings;
-            // res.json({ currentUserInfo, rankings });
             next();
         }
     });
