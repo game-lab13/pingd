@@ -4,9 +4,13 @@ import React from 'react'
 
 const RankRow = (props) => {
   return (
-    <div>
-      {props.ranking.username}
-      {props.ranking.points}
+    <div className='rankingsRow'>
+      <div>{props.ranking.username}</div>
+      {/* <button>match</button> */}
+      <div>{props.ranking.points}</div>
+      <div>{props.ranking.wins}</div>
+      <div>{props.ranking.losses}</div>
+      {/* <div>{props.ranking.points}</div> */}
     </div>
   )
 }

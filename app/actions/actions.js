@@ -18,7 +18,25 @@ export const logInToMain = (credentials) => {
   }
 }
 
+export const signUp = (credentials) => {
+
+  return (dispatch) => {
+    fetch('/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(credentials),
+    })
+    .then(response => response.json())
+    .then(data => {
+      dispatch( {
+        type: types.LOG_IN, payload: data
+      })
+    })
+    .catch(err => console.error(err));
+  }
+}
+
 // test action creator
-// export const testLogIn = (data) => ({
-//   type: types.LOG_IN, payload: {currentUserLoggedIn:true}
-// })
+export const activateSignUp = () => ({
+  type: types.SIGN_UP
+})
