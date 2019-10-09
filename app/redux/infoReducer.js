@@ -12,10 +12,11 @@ const infoReducer = (state = initialState, action) => {
     
     let loginID;
     let currentRanking;
-    
+    console.log(action.payload, ' is the action.payload')
     switch (action.type) {
         case types.LOG_IN:
-            loginID = action.payload.currentUserInfo.id
+            loginID = action.payload.userInfo.id
+            // console.log(loginID, ' is the login id!!!!')
             currentRanking = action.payload.rankings
             return {
                 ...state,
