@@ -27,12 +27,10 @@ class Login extends Component {
 
     setUsername(value) {
         this.setState({username: value})
-        console.log(this.state);
     }
     
     setPassword(value) {
         this.setState({password: value})
-        console.log(this.state);
     }
 
     render() { 
@@ -55,7 +53,7 @@ class Login extends Component {
                     <div className='loginForm'>
                         <h2>PING'D</h2>
                         <input placeholder='Username' onChange={(e) => this.setUsername(e.target.value) }></input>
-                        <input placeholder='Password' onChange={(e) => this.setPassword(e.target.value)}></input>
+                        <input placeholder='Password' type='password' onChange={(e) => this.setPassword(e.target.value)}></input>
                         <button onClick={() => this.props.logInToApp(this.state)}>Log In</button>
                         <button onClick={() => this.props.toggleSignUp()}>Sign Up</button>
                     </div>

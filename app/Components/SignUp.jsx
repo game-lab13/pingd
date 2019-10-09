@@ -62,7 +62,7 @@ class SignUp extends Component {
             <input placeholder='First Name' onChange={(e) => this.setFname(e.target.value)}></input>
             <input placeholder='Last Name' onChange={(e) => this.setLname(e.target.value)}></input>
             <input placeholder='Username' onChange={(e) => this.setUsername(e.target.value)}></input>
-            <input placeholder='Password' onChange={(e) => this.setPassword(e.target.value)}></input>
+            <input placeholder='Password' type='password' onChange={(e) => this.setPassword(e.target.value)}></input>
             <input placeholder='Phone' onChange={(e) => this.setPhone(e.target.value)}></input>
             <button onClick={() => this.props.signUpToApp(this.state)}>Submit</button>
         </div>
