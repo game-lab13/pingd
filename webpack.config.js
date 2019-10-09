@@ -9,8 +9,8 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.(jsx)$/, use: 'babel-loader'},
-            { test: /\.scss$/, use: [ 'style-loader', 'css-loader', 'sass-loader' ]}
+            { test: /\.(jsx)$/, use: 'babel-loader' },
+            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
         ]
     },
     mode: process.env.NODE_ENV,
