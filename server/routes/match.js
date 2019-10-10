@@ -36,7 +36,7 @@ router.patch('/inviteResponse', (req, res, next) => {
 
     pool.query(updateInviteStatus, values, (err, result) => {
         if (err) res.status(500).send(err);
-        else res.sendStatus(200);
+        else res.status(200).json({ match_id });
     })
 });
 
