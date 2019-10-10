@@ -9,8 +9,8 @@ const ScoreConfirm = props => {
   return (
     <div className="ScoreConfirm action-box">
       <div >{`Did `}<span className="action-object">{winner}</span>{` win?`}</div>
-      <button onClick={() => props.scoreConfirmation({ match_id: props.scoreData.match_id, user_response: 'confirm' })}>Yes</button>
-      <button onClick={() => props.scoreConfirmation({ match_id: props.scoreData.match_id, user_response: 'declined' })}>No!</button>
+      <button className="action-button" onClick={() => props.scoreConfirmation({ match_id: props.scoreData.match_id, user_response: 'confirm' })}>Yes</button>
+      <button className="action-button" onClick={() => props.scoreConfirmation({ match_id: props.scoreData.match_id, user_response: 'declined' })}>No!</button>
     </div>
   );
 };
