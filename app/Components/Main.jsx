@@ -32,15 +32,17 @@ class Main extends Component {
       return (
         <div className='rankingsContainer'>
           <h3>OVERALL RANKINGS</h3>
-          <h4>{`Your ranking is ${currentUserRanking}`}</h4>
-         <div className='rankingsRow header'>
-           <div>Rank</div>
-            <div>Username</div>
-            <div>Score</div>
-            <div>Wins</div>
-            <div>Losses</div>
-         </div>
+          <p>{`Your ranking is ${currentUserRanking}`}</p>
+          <div id ='rankingBody'>
+          <div className='rankingsRow header'>
+            <div>Rank</div>
+              <div className='userNameDiv'>Username</div>
+              <div>Score</div>
+              <div>Wins</div>
+              <div>Losses</div>
+          </div>
           <div>{rankingArray}</div>
+          </div>
         </div>
       )
   }
