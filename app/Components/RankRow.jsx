@@ -9,6 +9,10 @@ const mapStateToProps = store => ({
   currentRanking: store.info.currentRanking
 })
 
+const mapDispatchToProps = dispatch => ({
+  createMatch: (matchData) => dispatch(actions.createMatch(matchData)),
+})
+
 // formatting data received from the server
 
 
@@ -39,7 +43,7 @@ const RankRow = (props) => {
     return (
       <div className='rankingsRow'>
         <div>{props.rank+1}</div>
-        <div>{props.ranking.username}<button className='inviteBtn' onClick={() => clickMe(props.ranking.username)} className='matchBtn'>Invite!</button>
+        <div>{props.ranking.username}<button className='inviteBtn' onClick={() => clickMe(props.ranking.id)} className='matchBtn'>Invite!</button>
 </div>
         <div>{props.ranking.points}</div>
         <div>{props.ranking.wins}</div>
@@ -51,4 +55,4 @@ const RankRow = (props) => {
 
 
 // export default RankRow;
-export default connect (mapStateToProps)(RankRow);
+export default connect (mapStateToProps, mapDispatchToProps)(RankRow);

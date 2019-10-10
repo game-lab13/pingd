@@ -37,7 +37,25 @@ export const signUp = (credentials) => {
   }
 }
 
-// test action creator
+export const createMatch = (matchData) => {
+
+  return (dispatch) => {
+    fetch('/requestMatch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(matchData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      dispatch( {
+        type: types.CREATE_MATCH, payload: data
+      })
+    })
+    .catch(err => console.error(err));
+  }
+}
+
+//! test action creator
 export const activateSignUp = () => ({
   type: types.SIGN_UP
 })
