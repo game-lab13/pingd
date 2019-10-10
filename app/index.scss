@@ -8,10 +8,47 @@
   margin-top: .5%;
   margin-bottom: .75%;
   padding: .75%;
+
   // margin-bottom: 1px solid #333;
   border-bottom: 1px solid rgb(232, 232, 232);
   font-family: Arial, Helvetica, sans-serif;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+}
+
+#actionScreenBtn {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 75px;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(255, 111, 0)
+}
+
+#homeScreenBtn {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50%;
+  height: 75px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(255, 111, 0)
+}
+
+// #homeScreenBtn:hover {
+//   background-color: rgb(254, 138, 49)
+// }
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.rightNav {
+padding: 10% auto 10% auto;
 }
 
 .header {
@@ -20,6 +57,8 @@
 }
 
 .matchBtn {
+font-size: 12px;
+float: right;
 border: none;
 font-weight: 700;
 color: white;
@@ -40,6 +79,42 @@ background-color: rgb(254, 138, 49);
   align-items: center;
   grid-template-columns: 1fr;
   width: 50%;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#nav-bar {
+  height: 100vh;
+  width: 25vh;
+  background-color: rgb(232, 232, 232);
+  float: left;
+}
+
+#rankingBody {
+  max-width: 80vh;
+  margin: auto;
+  text-align: center;
+}
+
+.rankingsContainer {
+  max-width: 75%;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.userNameDiv {
+  min-width: 175px;
+  margin-right: 25px;
 }
 
 .userInput {
@@ -63,8 +138,16 @@ background-color: rgb(254, 138, 49);
   color: rgb(255, 111, 0)
 }
 
+#signUpHeader {
+  text-align: center;
+  color: rgb(255, 111, 0);
+  font-size: 2em;
+}
+
 .loginBtn {
   margin-top: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
   height: 50%;
   border: none;
@@ -76,11 +159,20 @@ background-color: rgb(254, 138, 49);
 
 .loginBtn:hover {
   cursor: pointer;
-  background-color: rgb(255, 111, 0)
+  background-color: rgb(255, 111, 0);
 }
 
 .signupBtn {
-  margin-top: 4%;
+  margin-top: 3%;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  width: 100%;
+  height: 50%;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: rgb(117, 117, 117)
 }
 
 .inviteBtn {

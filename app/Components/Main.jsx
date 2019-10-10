@@ -30,15 +30,17 @@ class Main extends Component {
       return (
         <div className='rankingsContainer'>
           <h3>OVERALL RANKINGS</h3>
-          <h4>Your ranking is</h4>
-         <div className='rankingsRow header'>
-           <div>Rank</div>
-            <div>Username</div>
-            <div>Score</div>
-            <div>Wins</div>
-            <div>Losses</div>
-         </div>
-          <div>{rankingArray}</div>
+          <p>Your ranking is [INSERT USER RANKING HERE]</p>
+          <div id='rankingBody'>
+            <div className='rankingsRow header'>
+              <div>Rank</div>
+                <div className='userNameDiv'>Username</div>
+                <div>Score</div>
+                <div>Wins</div>
+                <div>Losses</div>
+              </div>
+            <div>{rankingArray}</div>
+          </div>
         </div>
       )
   }
