@@ -49,6 +49,27 @@ const infoReducer = (state = initialState, action) => {
                 signUp: true,
             }
 
+        case types.CREATE_MATCH:
+
+            invitesSent = state.invitesSent.slice();
+            invitesSent.push(action.payload)
+            return {
+                ...state,
+                invitesSent,
+            }
+        
+        case types.REMOVE_INVITE:
+
+            invitesReceived = state.invitesReceived.slice();
+            invitesReceived = invitesReceived.filter((invite) => {
+                return invite.match_id !== action.payload.match_id 
+            })
+        
+            return {
+                ...state,
+                invitesReceived,
+            }
+
         default: 
         return state;
     }

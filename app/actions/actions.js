@@ -1,4 +1,5 @@
 import * as types from '../constants/actionTypes.js';
+import { match } from 'minimatch';
 
 export const logInToMain = (credentials) => {
 
@@ -10,7 +11,6 @@ export const logInToMain = (credentials) => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log('data from SERVER', data)
       dispatch( {
         type: types.LOG_IN, payload: data
       })
@@ -37,7 +37,42 @@ export const signUp = (credentials) => {
   }
 }
 
-// test action creator
+export const createMatch = (matchData) => {
+
+  return (dispatch) => {
+    fetch('/match/requestMatch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(matchData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      dispatch( {
+        type: types.CREATE_MATCH, payload: data
+      })
+    })
+    .catch(err => console.error(err));
+  }
+}
+
+export const removeInvite = (matchData) => {
+  return (dispatch) => {
+    fetch('/match/inviteResponse', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(matchData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      dispatch( {
+        type: types.REMOVE_INVITE, payload: data
+      })
+    })
+    .catch(err => console.error(err));
+  }
+}
+
+//! test action creator
 export const activateSignUp = () => ({
   type: types.SIGN_UP
 })

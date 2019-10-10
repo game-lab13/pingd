@@ -22,14 +22,8 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
     logInToApp: (credentials) => dispatch(actions.logInToMain(credentials)),
     toggleSignUp: () => dispatch(actions.activateSignUp()),
+    removeInvite: (data) => dispatch(actions.removeInvite(data)),
 })
-
-//! test data - ERASE LATER
-const testData = [{user: 'Paul'}, {user: 'Duane'}]
-const testDataScore = [{host: 'Paul', guest: 'Duane'}, {host: 'XaRheea', guest: 'Natalie'}]
-const testDataResult = [{winner: 'Duane'}, {winner: 'XaRheea'}]
-
-//!
 
 class Action extends Component {
   constructor(props) {
@@ -42,16 +36,16 @@ class Action extends Component {
     })
     
     const invReceivedArray = this.props.invitesReceived.map((data, index) => {
-      return <InviteReceived key={`invitereceived${index}`} invite={data} />
+      return <InviteReceived key={`invitereceived${index}`} invite={data} removeInvite={this.props.removeInvite}/>
     })
     
     const recordScoreArray = this.props.scoresToRecord.map((data, index) => {
       return <RecordScore key={`record${index}`} guestData={data} host={this.props.loginUsername} />
     })
     
-    // const scoreConfirmArray = this.props.scoresToConfirm.map((data, index) => {
-    //   return <ScoreConfirm key={`confirm${index}`} scoreData={data} />
-    // })
+    const scoreConfirmArray = this.props.scoresToConfirm.map((data, index) => {
+      return <ScoreConfirm key={`confirm${index}`} scoreData={data} />
+    })
 
       return (
         <div>
@@ -73,7 +67,7 @@ class Action extends Component {
           <div>
             Score Confirmation
             <hr/>
-            {/* {scoreConfirmArray} */}
+            {scoreConfirmArray}
           </div>
         </div>
       )

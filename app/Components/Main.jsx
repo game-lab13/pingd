@@ -7,6 +7,7 @@ import * as actions from '../actions/actions.js'
 const mapStateToProps = store => ({
   loginID: store.info.loginID,
   signUp: store.info.signUp,
+  invitesSent: store.info.invitesSent,
   currentRanking: store.info.currentRanking
 })
 
@@ -21,13 +22,10 @@ class Main extends Component {
 
 }
 
-
   render() { 
       const rankingArray = this.props.currentRanking.map((user, index) => {
         return <RankRow rank={index} key={`rankrow${index}`} currentUser={this.props.loginID} ranking={user} />
       })
-
-
 
       return (
         <div className='rankingsContainer'>
