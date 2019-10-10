@@ -6,22 +6,15 @@ const router = express.Router();
 
 
 router.post('/requestMatch', (req, res, next) => {
-    // first_name
-    // match_id
-    // user_id
-    // username
     const { host_id, guest_id } = req.body;
     let insertMatchQuery = `INSERT INTO "match" (host_id, guest_id) VALUES ($1, $2) RETURNING host_id`;
     const values = [host_id, guest_id];
-
     pool.query(insertMatchQuery, values, (err, result) => {
         if (err) res.status(500).send(err);
         else {
             let host_id = result.rows[0].host_id;
-            console.log('host id ', host_id);
-            let getUserInfoQuery = `SELECT "user".id AS user_id, "match".id AS match_id, first_name, username FROM "user" JOIN "match" ON "user".id = "match".guest_id WHERE host_id=$1`;
-            const value = [host_id];
-
+            let getUserInfoQuery = `SELECT "user".id AS user_id, "match".id AS match_id, first_name, username FROM "user" JOIN "match" ON "user".id = "match".guest_id WHERE guest_id=$1`;
+            const value = [guest_id];
             pool.query(getUserInfoQuery, value, (err, result) => {
                 if (err) res.status(500).send(err);
                 else {
@@ -41,7 +34,7 @@ router.patch('/inviteResponse', (req, res, next) => {
 
     pool.query(updateInviteStatus, values, (err, result) => {
         if (err) res.status(500).send(err);
-        else res.sendStatus(200);
+        else res.status(200).json({ match_id });
     })
 });
 

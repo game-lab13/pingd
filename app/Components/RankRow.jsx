@@ -6,8 +6,10 @@ const mapStateToProps = store => ({
   loginID: store.info.loginID,
   signUp: store.info.signUp,
   loginUsername: store.info.loginUsername,
-  currentRanking: store.info.currentRanking
+  currentRanking: store.info.currentRanking,
+  invitesSent: store.info.invitesSent,
 })
+
 
 const mapDispatchToProps = dispatch => ({
   createMatch: (matchData) => dispatch(actions.createMatch(matchData)),

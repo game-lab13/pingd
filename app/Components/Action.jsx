@@ -22,6 +22,7 @@ const mapStateToProps = store => ({
 const mapDispatchToProps = dispatch => ({
     logInToApp: (credentials) => dispatch(actions.logInToMain(credentials)),
     toggleSignUp: () => dispatch(actions.activateSignUp()),
+    removeInvite: (data) => dispatch(actions.removeInvite(data)),
 })
 
 class Action extends Component {
@@ -35,7 +36,7 @@ class Action extends Component {
     })
     
     const invReceivedArray = this.props.invitesReceived.map((data, index) => {
-      return <InviteReceived key={`invitereceived${index}`} invite={data} />
+      return <InviteReceived key={`invitereceived${index}`} invite={data} removeInvite={this.props.removeInvite}/>
     })
     
     const recordScoreArray = this.props.scoresToRecord.map((data, index) => {
