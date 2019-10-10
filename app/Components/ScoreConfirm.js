@@ -4,8 +4,7 @@ const ScoreConfirm = props => {
 
   return (
     <div className="action-box">
-      {/* // style={{border: 'solid orange 3px', width: '150px', marginBottom: '5px'}} className="ScoreConfirm"> */}
-      <div>{`Did ${props.scoreData.username} win?`}</div>
+      <div>{`Did `}<span className="action-object">{props.scoreData.username}</span>{` win?`}</div>
       <button>Yes</button>
       <button>No!</button>
     </div>

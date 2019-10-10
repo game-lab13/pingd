@@ -48,7 +48,7 @@ class Action extends Component {
     })
 
     return (
-      <div>
+      <div className="action-container">
         <div className="left-actions">
           <div>
             <h2 className="action-title">Invites Sent</h2>
