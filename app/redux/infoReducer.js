@@ -1,4 +1,5 @@
 import * as types from '../constants/actionTypes.js'
+import { scoreConfirmation } from '../actions/actions.js';
 
 const initialState = {
 signUp: false,
@@ -69,6 +70,32 @@ const infoReducer = (state = initialState, action) => {
                 ...state,
                 invitesReceived,
             }
+        
+        case types.RECORD_SCORE:
+
+            scoresToRecord = state.scoresToRecord.slice();
+            scoresToRecord = scoresToRecord.filter((match) => {
+                return match.match_id !== action.payload.match_id 
+            })
+        
+            return {
+                ...state,
+                scoresToRecord,
+            }
+
+        case types.SCORE_CONFIRMATION:
+
+            scoresToConfirm = state.scoresToConfirm.slice();
+            scoresToConfirm = scoresToConfirm.filter((match) => {
+                return match.match_id !== action.payload
+            })
+
+            return  {
+                ...state,
+                scoresToConfirm
+            }
+
+            
 
         default: 
         return state;

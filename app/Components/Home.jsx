@@ -10,31 +10,30 @@ class Ranking extends Component {
         super(props);
     }
 
-    render() { 
+    render() {
         return (
-          <Router>
-            <div>
-              <div id="nav-bar">
-                  <button id='homeScreenBtn'>
-                    <Link to="/main">Leaderboard</Link>
-                  </button>
-                    <button id='actionScreenBtn'>
-                    <Link to="/action">Actions</Link>
-                    </button>
-              </div>
-              <hr />
+            <Router>
+                <div>
+                    <ul>
+                        <li>
+                            <Link to='/main'>Leaderboard</Link>
+                        </li>
+                        <li>
+                            <Link to="/action">Actions</Link>
+                        </li>
+                    </ul>
+                    <hr />
 
-              <Route
-                exact
-                path="/main"
-                render={() => <Main {...this.props} />}
-              />
-              {/* <Route exact path="/main" component={Main} /> */}
-              <Route path="/action" component={Action} />
-            </div>
-          </Router>
+                    <Route
+                        exact path='/main'
+                        render={() => <Main {...this.props} />}
+                    />
+                    {/* <Route exact path="/main" component={Main} /> */}
+                    <Route path="/action" component={Action} />
+                </div>
+            </Router>
         );
     }
 }
- 
+
 export default Ranking;
