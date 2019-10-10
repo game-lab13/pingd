@@ -2,11 +2,13 @@ import * as types from '../constants/actionTypes.js'
 
 const initialState = {
 signUp: false,
-// userInfo: null,
+loginID: null,
 loginUsername: '',
+invitesReceived: [],
+invitesSent: [],
+scoresToConfirm: [],
+scoresToRecord: [],
 currentRanking: [],
-pendingInvites: [],
-pendingConfirmation: [],
 }
 
 const infoReducer = (state = initialState, action) => {
@@ -14,18 +16,30 @@ const infoReducer = (state = initialState, action) => {
     let loginID;
     let loginUsername;
     let currentRanking;
-    // console.log(action.payload, ' is the action.payload')
+    let invitesReceived;
+    let invitesSent;
+    let scoresToConfirm;
+    let scoresToRecord;
+
     switch (action.type) {
         case types.LOG_IN:
-            loginUsername = action.payload.userInfo.username
             loginID = action.payload.userInfo.id
-            // console.log(loginID, ' is the login id!!!!')
+            loginUsername = action.payload.userInfo.username
             currentRanking = action.payload.rankings
+            invitesReceived = action.payload.invitesReceived
+            invitesSent = action.payload.invitesSent
+            scoresToConfirm = action.payload.scoresToConfirm
+            scoresToRecord = action.payload.scoresToRecord
+
             return {
                 ...state,
-                loginID: loginID,
-                loginUsername: loginUsername,
-                currentRanking: currentRanking
+                loginID,
+                loginUsername,
+                currentRanking,
+                invitesReceived,
+                invitesSent,
+                scoresToConfirm,
+                scoresToRecord
             }
         
         case types.SIGN_UP:
