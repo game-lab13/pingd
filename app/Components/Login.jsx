@@ -51,11 +51,11 @@ class Login extends Component {
         else {
             return (
                     <div className='loginForm'>
-                        <h2>PING'D</h2>
-                        <input placeholder='Username' onChange={(e) => this.setUsername(e.target.value) }></input>
-                        <input placeholder='Password' type='password' onChange={(e) => this.setPassword(e.target.value)}></input>
-                        <button onClick={() => this.props.logInToApp(this.state)}>Log In</button>
-                        <button onClick={() => this.props.toggleSignUp()}>Sign Up</button>
+                        <h2 className='title'>PiNG'D</h2>
+                        <input className='userInput' placeholder='Username' type='text' onChange={(e) => this.setUsername(e.target.value) }></input>
+                        <input className='userInput' placeholder='Password' type='password' onChange={(e) => this.setPassword(e.target.value)}></input>
+                        <button className='loginBtn' onClick={() => this.props.logInToApp(this.state)}>Log In</button>
+                        <button className='signupBtn' onClick={() => this.props.toggleSignUp()}>Sign Up</button>
                     </div>
              );
         }

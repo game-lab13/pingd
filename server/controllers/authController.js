@@ -38,6 +38,7 @@ authController.createUser = (req, res, next) => {
 
 authController.verifyUser = (req, res, next) => {
     const { username, password } = req.body;
+    console.log(username, ' is the username')
     let queryString = `SELECT password FROM "user" WHERE username=$1;`;
     const value = [username];
 
