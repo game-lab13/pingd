@@ -1,5 +1,9 @@
+$main-orange: rgb(255, 111, 0);
+$main-gray: rgb(97,97,97);
+
 * {
   font-family: Arial, Helvetica, sans-serif;
+  color: $main-gray;
   // background-color: rgb(216, 216, 216);
 }
 
@@ -30,7 +34,7 @@ background-color: rgb(254, 138, 49);
 
 .matchBtn:hover {
   cursor: pointer;
-  background-color: rgb(255, 111, 0)
+  background-color: $main-orange;
 }
 
 .loginForm {
@@ -45,7 +49,7 @@ background-color: rgb(254, 138, 49);
 .userInput {
   margin: 1.5% 0 2% 0;
   outline: none;
-  border: 1px solid rgb(255, 111, 0);
+  border: 1px solid $main-orange;
   padding: .25%;
   background: rgba(0, 0, 0, 0);
   background-color: none;
@@ -60,7 +64,7 @@ background-color: rgb(254, 138, 49);
 .title {
   font-size: 5rem;
   text-align: center;
-  color: rgb(255, 111, 0)
+  color: $main-orange
 }
 
 .loginBtn {
@@ -76,7 +80,7 @@ background-color: rgb(254, 138, 49);
 
 .loginBtn:hover {
   cursor: pointer;
-  background-color: rgb(255, 111, 0)
+  background-color: $main-orange
 }
 
 .signupBtn {
@@ -86,4 +90,39 @@ background-color: rgb(254, 138, 49);
 .inviteBtn {
   background-color: rgb(254, 138, 49);
   color: white;
+}
+
+.left-actions {
+  float: left;
+  width: 50%;
+}
+
+.right-actions {
+  float: right;
+  width: 50%;
+}
+
+.action-title {
+  font-size: 18px;
+  color: $main-gray;
+  padding-top: 10px;
+}
+
+.action-box {
+  border: solid $main-orange 1px;
+  border-radius: 4px;
+  padding: 15px;
+  width: 250px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.action-text {
+  color: $main-gray;
+}
+
+.invite-sent {
+  font-weight: bold;
+  padding: 5px;
+  
 }

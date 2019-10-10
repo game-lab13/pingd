@@ -9,68 +9,68 @@ import { connect } from 'react-redux'
 import * as actions from '../actions/actions.js'
 
 const mapStateToProps = store => ({
-    loginID: store.info.loginID,
-    loginUsername: store.info.loginUsername,
-    signUp: store.info.signUp,
-    currentRanking: store.info.currentRanking,
-    invitesReceived: store.info.invitesReceived,
-    invitesSent: store.info.invitesSent,
-    scoresToConfirm: store.info.scoresToConfirm,
-    scoresToRecord: store.info.scoresToRecord,
+  loginID: store.info.loginID,
+  loginUsername: store.info.loginUsername,
+  signUp: store.info.signUp,
+  currentRanking: store.info.currentRanking,
+  invitesReceived: store.info.invitesReceived,
+  invitesSent: store.info.invitesSent,
+  scoresToConfirm: store.info.scoresToConfirm,
+  scoresToRecord: store.info.scoresToRecord,
 })
 
 const mapDispatchToProps = dispatch => ({
-    logInToApp: (credentials) => dispatch(actions.logInToMain(credentials)),
-    toggleSignUp: () => dispatch(actions.activateSignUp()),
-    removeInvite: (data) => dispatch(actions.removeInvite(data)),
+  logInToApp: (credentials) => dispatch(actions.logInToMain(credentials)),
+  toggleSignUp: () => dispatch(actions.activateSignUp()),
+  removeInvite: (data) => dispatch(actions.removeInvite(data)),
 })
 
 class Action extends Component {
   constructor(props) {
     super(props);
   }
-  render() { 
+  render() {
 
     const invSentArray = this.props.invitesSent.map((data, index) => {
       return <InviteSent key={`invitesent${index}`} invite={data} />
     })
-    
+
     const invReceivedArray = this.props.invitesReceived.map((data, index) => {
-      return <InviteReceived key={`invitereceived${index}`} invite={data} removeInvite={this.props.removeInvite}/>
+      return <InviteReceived key={`invitereceived${index}`} invite={data} removeInvite={this.props.removeInvite} />
     })
-    
+
     const recordScoreArray = this.props.scoresToRecord.map((data, index) => {
       return <RecordScore key={`record${index}`} guestData={data} host={this.props.loginUsername} />
     })
-    
+
     const scoreConfirmArray = this.props.scoresToConfirm.map((data, index) => {
       return <ScoreConfirm key={`confirm${index}`} scoreData={data} />
     })
 
-      return (
-        <div>
+    return (
+      <div>
+        <div className="left-actions">
           <div>
-            Invite Sent
-            <hr/>
+            <h2 className="action-title">Invites Sent</h2>
             {invSentArray}
           </div>
           <div>
-            Invite Received
-            <hr/>
+            <h2 className="action-title">Invites Received</h2>
             {invReceivedArray}
           </div>
+        </div>
+        <div className="right-actions">
           <div>
-            Record Score
-            <hr/>
+            <h2 className="action-title">Record Scores</h2>
             {recordScoreArray}
           </div>
           <div>
-            Score Confirmation
-            <hr/>
+            <h2 className="action-title">Confirm Scores</h2>
             {scoreConfirmArray}
           </div>
         </div>
-      )
+      </div>
+    )
   }
 }
 
