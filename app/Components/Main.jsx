@@ -23,14 +23,16 @@ class Main extends Component {
 }
 
   render() { 
+      let currentUserRanking;
       const rankingArray = this.props.currentRanking.map((user, index) => {
+        if (user.id === this.props.loginID) currentUserRanking = index + 1;
         return <RankRow rank={index} key={`rankrow${index}`} currentUser={this.props.loginID} ranking={user} />
       })
 
       return (
         <div className='rankingsContainer'>
           <h3>OVERALL RANKINGS</h3>
-          <h4>Your ranking is</h4>
+          <h4>{`Your ranking is ${currentUserRanking}`}</h4>
          <div className='rankingsRow header'>
            <div>Rank</div>
             <div>Username</div>

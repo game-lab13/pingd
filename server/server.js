@@ -16,12 +16,26 @@ app.get('/', function (req, res) {
     res.send('RANKINGS');
 });
 
-app.get('/login', function (req, res) {
-    // We need to send the login page to be rendered on the user's computer
-});
+// app.get('/login', function (req, res) {
+//     // We need to send the login page to be rendered on the user's computer
+// });
 
 app.post('/login',
     authController.verifyUser,
+    userController.fetchRanking,
+    matchController.fetchInvitesReceived,
+    matchController.fetchInvitesSent,
+    matchController.fetchScoresToRecord,
+    matchController.fetchScoresToConfirm,
+    (err, res) => {
+
+        //send rankings after verify user
+        //We need to grab the login info provided by the user on submit, send to auth verify user
+        //upon verification, redirect to the home rankings page
+    })
+
+app.get('/update', 
+
     userController.fetchRanking,
     matchController.fetchInvitesReceived,
     matchController.fetchInvitesSent,
