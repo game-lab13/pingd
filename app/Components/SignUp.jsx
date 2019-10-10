@@ -58,13 +58,13 @@ class SignUp extends Component {
     else {
       return ( 
         <div className='loginForm'>
-            <h2>Sign Up</h2>
-            <input placeholder='First Name' onChange={(e) => this.setFname(e.target.value)}></input>
-            <input placeholder='Last Name' onChange={(e) => this.setLname(e.target.value)}></input>
-            <input placeholder='Username' onChange={(e) => this.setUsername(e.target.value)}></input>
-            <input placeholder='Password' type='password' onChange={(e) => this.setPassword(e.target.value)}></input>
-            <input placeholder='Phone' onChange={(e) => this.setPhone(e.target.value)}></input>
-            <button onClick={() => this.props.signUpToApp(this.state)}>Submit</button>
+            <h2 className='title'>Sign Up</h2>
+            <input className='userInput' placeholder='First Name' onChange={(e) => this.setFname(e.target.value)}></input>
+            <input className='userInput' placeholder='Last Name' onChange={(e) => this.setLname(e.target.value)}></input>
+            <input className='userInput' placeholder='Username' onChange={(e) => this.setUsername(e.target.value)}></input>
+            <input className='userInput' placeholder='Password' type='password' onChange={(e) => this.setPassword(e.target.value)}></input>
+            <input className='userInput' placeholder='Phone' onChange={(e) => this.setPhone(e.target.value)}></input>
+            <button className='loginBtn' onClick={() => this.props.signUpToApp(this.state)}>Submit</button>
         </div>
        );
     }

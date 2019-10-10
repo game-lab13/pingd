@@ -159,3 +159,92 @@ background-color: rgb(254, 138, 49);
 	position:relative;
 	top:1px;
 }
+
+#actionBtn {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 75px;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(255, 111, 0)
+}
+
+#homeBtn {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50%;
+  height: 75px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(255, 111, 0)
+}
+
+#nav-bar {
+  height: 100vh;
+  width: 25vh;
+  background-color: rgb(232, 232, 232);
+  float: left;
+}
+
+#rankingBody {
+  max-width: 80vh;
+  margin: auto;
+  text-align: center;
+}
+
+.rankingsContainer {
+  max-width: 75%;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.userNameDiv {
+  min-width: 175px;
+  margin-right: 25px;
+}
+
+h3 {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+
+#signUpHeader {
+  text-align: center;
+  color: rgb(255, 111, 0);
+  font-size: 2em;
+}
+
+.signupBtn {
+  margin-top: 4%;
+  margin-top: 3%;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  width: 100%;
+  height: 50%;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: rgb(117, 117, 117)
+}
+
+.matchBtn {
+  float: right;
+  border: none;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(254, 138, 49);
+  width: 50%;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+  }
+  

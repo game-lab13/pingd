@@ -13,16 +13,11 @@ class Ranking extends Component {
     render() {
         return (
             <Router>
-                <div>
-                    <ul>
-                        <li>
-                            <Link to='/main'>Leaderboard</Link>
-                        </li>
-                        <li>
-                            <Link to="/action">Actions</Link>
-                        </li>
-                    </ul>
-                    <hr />
+                <div id='nav-bar'>
+                        <button id='homeBtn'><Link to='/main'>Leaderboard</Link></button>
+                        <button id='actionBtn'><Link to="/action">Actions</Link></button>
+                   </div>
+                    {/* <hr /> */}
 
                     <Route
                         exact path='/main'
@@ -30,7 +25,6 @@ class Ranking extends Component {
                     />
                     {/* <Route exact path="/main" component={Main} /> */}
                     <Route path="/action" component={Action} />
-                </div>
             </Router>
         );
     }
