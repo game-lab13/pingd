@@ -36,7 +36,7 @@ authController.createUser = (req, res, next) => {
 
 }
 
-authController.verifyUser = (req, res, next) => {
+authController.vgvgverifyUser = (req, res, next) => {
     const { username, password } = req.body;
     let queryString = `SELECT password FROM "user" WHERE username=$1;`;
     const value = [username];
