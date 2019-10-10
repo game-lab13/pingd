@@ -38,6 +38,7 @@ module.exports = {
             '/login': 'http://localhost:3000',
             '/signup': 'http://localhost:3000',
             '/match': 'http://localhost:3000',
+            '/update': 'http://localhost:3000',
         }
     }
 }
