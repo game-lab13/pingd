@@ -72,6 +72,40 @@ export const removeInvite = (matchData) => {
   }
 }
 
+export const recordScore= (matchData) => {
+  return (dispatch) => {
+    fetch('/match/recordScore', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(matchData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      // this dispatches to the reducer
+      dispatch( {
+        type: types.RECORD_SCORE, payload: data
+      })
+    })
+    .catch(err => console.error(err));
+  }
+}
+
+export const scoreConfirmation = (matchData) => {
+  return (dispatch) => {
+    fetch('/match/confirmScore', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(matchData),
+    })
+    .then(response => console.log(response))
+      // this dispatches to the reducer
+    .catch(err => console.error(err));
+    dispatch({
+          type: types.SCORE_CONFIRMATION, payload: matchData.match_id
+        })
+    }
+}
+
 //! test action creator
 export const activateSignUp = () => ({
   type: types.SIGN_UP

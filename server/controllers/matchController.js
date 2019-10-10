@@ -57,6 +57,7 @@ matchController.fetchScoresToConfirm = (req, res, next) => {
         if (err) {
             res.status(500).json(err);
         } else {
+            console.log('scorestoConfirm', res.locals['scoresToConfirm'])
             res.locals['scoresToConfirm'] = result.rows;
             res.status(200).json(res.locals)
         }
