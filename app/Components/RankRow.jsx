@@ -43,7 +43,7 @@ const RankRow = (props) => {
     return (
       <div className='rankingsRow'>
         <div>{props.rank+1}</div>
-        <div>{props.ranking.username}<button className='inviteBtn' onClick={() => clickMe(props.ranking.id)} className='matchBtn'>Invite!</button>
+        <div>{props.ranking.username}<button className='inviteBtn' onClick={() => props.createMatch({host_id: props.loginID, guest_id: props.ranking.id})} className='matchBtn'>Invite!</button>
 </div>
         <div>{props.ranking.points}</div>
         <div>{props.ranking.wins}</div>

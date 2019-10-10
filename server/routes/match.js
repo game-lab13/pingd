@@ -6,6 +6,7 @@ const router = express.Router();
 
 
 router.post('/requestMatch', (req, res, next) => {
+    console.log('BODY', req.body)
     const { host_id, guest_id } = req.body;
     let insertMatchQuery = `INSERT INTO "match" (host_id, guest_id) VALUES ($1, $2) RETURNING id`;
     const values = [host_id, guest_id];

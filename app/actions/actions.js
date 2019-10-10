@@ -40,16 +40,17 @@ export const signUp = (credentials) => {
 export const createMatch = (matchData) => {
 
   return (dispatch) => {
-    fetch('/requestMatch', {
+    fetch('/match/requestMatch', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(matchData),
     })
     .then(response => response.json())
     .then(data => {
-      dispatch( {
-        type: types.CREATE_MATCH, payload: data
-      })
+      console.log(data);
+      // dispatch( {
+      //   type: types.CREATE_MATCH, payload: data
+      // })
     })
     .catch(err => console.error(err));
   }

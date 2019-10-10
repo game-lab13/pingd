@@ -36,7 +36,8 @@ module.exports = {
         historyApiFallback: true,
         proxy: {
             '/login': 'http://localhost:3000',
-            '/signup': 'http://localhost:3000'
+            '/signup': 'http://localhost:3000',
+            '/match': 'http://localhost:3000',
         }
     }
 }

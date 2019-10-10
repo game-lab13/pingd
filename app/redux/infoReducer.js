@@ -49,6 +49,13 @@ const infoReducer = (state = initialState, action) => {
                 signUp: true,
             }
 
+        case types.CREATE_MATCH:
+
+        return {
+            ...state,
+            // signUp: true,
+        }
+
         default: 
         return state;
     }
