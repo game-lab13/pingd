@@ -21,25 +21,25 @@ const RankRow = (props) => {
 
   // console.log(this.loginID, ' is props login id')
   // console.log(props.userInfo, ' is the logged in user!!!!')
-  if (props.loginUsername === props.ranking.id){
-    return (
-      <div className='rankingsRow'>
-      <div>{props.rank+1}</div>
-      <div>
-        {props.ranking.username}
-        <button className='inviteBtn' onClick={() => clickMe(props.ranking.username)} className='matchBtn'>Match!</button>
-      </div>
-      <div>{props.ranking.points}</div>
-      <div>{props.ranking.wins}</div>
-      <div>{props.ranking.losses}</div>
-      {/* <div>{props.ranking.points}</div> */}
-    </div>
-    )
-  } else {
+  // if (this.props.loginUsername === props.ranking.id){
+  //   return (
+  //     <div className='rankingsRow'>
+  //     <div>{props.rank+1}</div>
+  //     <div>
+  //       {props.ranking.username}
+  //       <button className='inviteBtn' onClick={() => clickMe(props.ranking.username)} className='matchBtn'>Match!</button>
+  //     </div>
+  //     <div>{props.ranking.points}</div>
+  //     <div>{props.ranking.wins}</div>
+  //     <div>{props.ranking.losses}</div>
+  //     {/* <div>{props.ranking.points}</div> */}
+  //   </div>
+  //   )
+  // } else {
     return (
       <div className='rankingsRow'>
         <div>{props.rank+1}</div>
-        <div>{props.ranking.username}<button className='inviteBtn' onClick={() => clickMe(props.ranking.username)} className='matchBtn'>Invite!</button>
+        <div>{this.props.ranking.username}<button className='inviteBtn' onClick={() => clickMe(props.ranking.username)} className='matchBtn'>Invite!</button>
 </div>
         <div>{props.ranking.points}</div>
         <div>{props.ranking.wins}</div>
@@ -48,7 +48,7 @@ const RankRow = (props) => {
       </div>
     )
   }
-}
+
 
 // export default RankRow;
 export default connect (mapStateToProps)(RankRow);
