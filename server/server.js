@@ -6,11 +6,11 @@ const authController = require('./controllers/authController');
 const userController = require('./controllers/userController');
 const matchController = require('./controllers/matchController');
 
-// const matchRouter = require('./routes/match.js');
+const matchRouter = require('./routes/match.js');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use('/match', matchRouter);
+app.use('/match', matchRouter);
 
 app.get('/', function (req, res) {
     res.send('RANKINGS');
