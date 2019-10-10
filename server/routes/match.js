@@ -78,11 +78,9 @@ router.patch('/confirmScore', (req, res, next) => {
                 const loserValue = [loser_id];
                 pool.query(updateUserWinnerScores, winnerValue, (err, result) => {
                     if (err) res.status(500).send(err);
-                    // else res.sendStatus(200);
                 });
                 pool.query(updateUserLoserScores, loserValue, (err, result) => {
                     if (err) res.status(500).send(err);
-                    // else res.sendStatus(200);
                 });
             }
         });
