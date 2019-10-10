@@ -51,10 +51,12 @@ const infoReducer = (state = initialState, action) => {
 
         case types.CREATE_MATCH:
 
-        return {
-            ...state,
-            // signUp: true,
-        }
+            invitesSent = state.invitesSent.slice();
+            invitesSent.push(action.payload)
+            return {
+                ...state,
+                invitesSent,
+            }
 
         default: 
         return state;

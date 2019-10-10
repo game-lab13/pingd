@@ -37,11 +37,7 @@ module.exports = {
         proxy: {
             '/login': 'http://localhost:3000',
             '/signup': 'http://localhost:3000',
-<<<<<<< HEAD
             '/match': 'http://localhost:3000',
-=======
-            '/match': 'http://localhost:3000'
->>>>>>> dev
         }
     }
 }

@@ -24,13 +24,6 @@ const mapDispatchToProps = dispatch => ({
     toggleSignUp: () => dispatch(actions.activateSignUp()),
 })
 
-//! test data - ERASE LATER
-const testData = [{user: 'Paul'}, {user: 'Duane'}]
-const testDataScore = [{host: 'Paul', guest: 'Duane'}, {host: 'XaRheea', guest: 'Natalie'}]
-const testDataResult = [{winner: 'Duane'}, {winner: 'XaRheea'}]
-
-//!
-
 class Action extends Component {
   constructor(props) {
     super(props);
@@ -49,9 +42,9 @@ class Action extends Component {
       return <RecordScore key={`record${index}`} guestData={data} host={this.props.loginUsername} />
     })
     
-    // const scoreConfirmArray = this.props.scoresToConfirm.map((data, index) => {
-    //   return <ScoreConfirm key={`confirm${index}`} scoreData={data} />
-    // })
+    const scoreConfirmArray = this.props.scoresToConfirm.map((data, index) => {
+      return <ScoreConfirm key={`confirm${index}`} scoreData={data} />
+    })
 
       return (
         <div>
@@ -73,7 +66,7 @@ class Action extends Component {
           <div>
             Score Confirmation
             <hr/>
-            {/* {scoreConfirmArray} */}
+            {scoreConfirmArray}
           </div>
         </div>
       )
