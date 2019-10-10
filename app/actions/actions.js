@@ -10,6 +10,7 @@ export const logInToMain = (credentials) => {
     })
     .then(response => response.json())
     .then(data => {
+      console.log('data from SERVER', data)
       dispatch( {
         type: types.LOG_IN, payload: data
       })
