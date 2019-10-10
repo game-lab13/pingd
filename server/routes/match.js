@@ -40,12 +40,13 @@ router.patch('/inviteResponse', (req, res, next) => {
 
 router.patch('/recordScore', (req, res, next) => {
     const { match_id, selected_winner_id } = req.body;
+    console.log( match_id, selected_winner_id )
     let updateScoreStatus = `UPDATE "match" SET selected_winner_id=$1, score_status='hostConfirmed' WHERE id=$2`;
     const values = [selected_winner_id, match_id];
 
     pool.query(updateScoreStatus, values, (err, result) => {
         if (err) res.status(500).send(err);
-        else res.sendStatus(200);
+        else res.status(200).json({ match_id });
     })
 });
 

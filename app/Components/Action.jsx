@@ -20,9 +20,9 @@ const mapStateToProps = store => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    logInToApp: (credentials) => dispatch(actions.logInToMain(credentials)),
-    toggleSignUp: () => dispatch(actions.activateSignUp()),
     removeInvite: (data) => dispatch(actions.removeInvite(data)),
+    recordScore: (data) => dispatch(actions.recordScore(data)),
+    scoreConfirmation: (data) => dispatch(actions.scoreConfirmation(data))
 })
 
 class Action extends Component {
@@ -40,11 +40,11 @@ class Action extends Component {
     })
     
     const recordScoreArray = this.props.scoresToRecord.map((data, index) => {
-      return <RecordScore key={`record${index}`} guestData={data} host={this.props.loginUsername} />
+      return <RecordScore key={`record${index}`} guestData={data} host={{username: this.props.loginUsername, id: this.props.loginID}} recordScore={this.props.recordScore} />
     })
     
     const scoreConfirmArray = this.props.scoresToConfirm.map((data, index) => {
-      return <ScoreConfirm key={`confirm${index}`} scoreData={data} />
+      return <ScoreConfirm scoreConfirmation={this.props.scoreConfirmation} key={`confirm${index}`} scoreData={data} loginUsername={this.props.loginUsername} />
     })
 
       return (
